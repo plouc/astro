@@ -1,0 +1,13 @@
+{
+  "name": "flowbot",
+  "description": "flowbot",
+  "version": "0.0.1",
+  "dependencies" : {
+    "request": "*",
+    "underscore": "*",
+    "underscore.string": "*"
+  },
+  "engine": {
+    "node": ">=0.8"
+  }
+}
