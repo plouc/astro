@@ -21,4 +21,4 @@ Its particularity is its ability to learn new commands.
 
 ## Run the test suite
 
-    vows --spec tests/*
+    ./node_modules/.bin/vows tests/*

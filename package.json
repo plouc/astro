@@ -1,11 +1,23 @@
 {
-  "name": "flowbot",
-  "description": "flowbot",
+  "name": "astro",
+  "author": "Raphaël Benitte <benitteraphael@gmail.com>",
+  "description": "astro nodejs flowdock bot",
   "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
   "dependencies" : {
     "request": "*",
     "underscore": "*",
-    "underscore.string": "*"
+    "underscore.string": "*",
+    "vows": "*"
+  },
+  "devDependencies": {
+    "vows": "*"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/vows --spec tests/*"
   },
   "engine": {
     "node": ">=0.8"

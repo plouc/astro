@@ -58,12 +58,11 @@ vows.describe('TeachCommand')
                          + '\tteach a new commands to tester-bot, usage:\n'
                          + '\t> teach <directive> do: <action> [help: <help> tags: <tags>]';
 
-
-          console.log(command.help);
           assert.equal(command.hasHelp(), true);
           assert.equal(command.help, expectHelp);
         }
       },
+
 
       'when executing \'teach test do: i\'m a test\'': {
         'topic': function(o) {
@@ -94,8 +93,6 @@ vows.describe('TeachCommand')
         },
         'create a new command and add it to the command chain': function(o) {
           assert.equal(o.commandChain.commands.length, 2);
-
-          console.log(o.commandChain.get('testHelp'));
 
           var newCommand = o.commandChain.commands[0];
           assert.equal(newCommand.name, 'test');
