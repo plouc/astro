@@ -4,6 +4,8 @@ astro
 astro is a nodejs bot for flowdock.
 Its particularity is its ability to learn new commands.
 
+[![Build Status](https://travis-ci.org/plouc/astro.png?branch=master)](https://travis-ci.org/plouc/astro)
+
 ## Installation
 
 ### Install dependencies
