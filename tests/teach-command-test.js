@@ -51,9 +51,9 @@ vows.describe('TeachCommand')
         },
         'has help defined': function(o) {
           var expectHelp = '\tteach help                                                    author: tester-bot\n'
-                         + '\t--------------------------------------------------------------------------------\n'
+                         + '\t————————————————————————————————————————————————————————————————————————————————\n'
                          + '\tteach a new commands to tester-bot, usage:\n'
-                         + '\t> teach <directive> do: <action> [help: <help> tags: <tags>]';
+                         + '\t➜ teach <directive> do: <action> [help: <help> tags: <tags>]';
 
           assert.equal(o.command.hasHelp(), true);
           assert.equal(o.command.help, expectHelp);

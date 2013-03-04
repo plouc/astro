@@ -29,10 +29,10 @@ vows.describe('ListCommand')
         },
         'has help defined': function(listCommand) {
           var expectHelp = '\tlist help                                                     author: tester-bot\n'
-                         + '\t--------------------------------------------------------------------------------\n'
+                         + '\t————————————————————————————————————————————————————————————————————————————————\n'
                          + '\tlist tester-bot available commands\n'
                          + '\tusage:\n'
-                         + '\t> list-cmd';
+                         + '\t➜ list-cmd';
 
           assert.equal(listCommand.hasHelp(), true);
           assert.equal(listCommand.help, expectHelp);
@@ -48,7 +48,7 @@ vows.describe('ListCommand')
         'return a string containing all the commands': function(listCommand) {
           var out = listCommand.exec({'content': 'list-cmd'});
           assert.equal(out.message, '\ttester-bot available commands\n'
-                                  + '\t--------------------------------------------------------------------------------');
+                                  + '\t————————————————————————————————————————————————————————————————————————————————');
         },
 
 
@@ -64,8 +64,8 @@ vows.describe('ListCommand')
           'display this command in the list': function(listCommand) {
             var out = listCommand.exec({'content': 'list-cmd'});
             var expectList = '\ttester-bot available commands\n'
-                           + '\t--------------------------------------------------------------------------------\n'
-                           + '\t* test1................................................................... (bot)';
+                           + '\t————————————————————————————————————————————————————————————————————————————————\n'
+                           + '\t• test1................................................................... (bot)';
 
             assert.equal(out.message, expectList);
           }
@@ -84,8 +84,8 @@ vows.describe('ListCommand')
           'does not add this command to the list': function(listCommand) {
             var out = listCommand.exec({'content': 'list-cmd'});
             var expectList = '\ttester-bot available commands\n'
-                           + '\t--------------------------------------------------------------------------------\n'
-                           + '\t* test1................................................................... (bot)';
+                           + '\t————————————————————————————————————————————————————————————————————————————————\n'
+                           + '\t• test1................................................................... (bot)';
 
             assert.equal(out.message, expectList);
           }

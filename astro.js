@@ -3,6 +3,7 @@ var _            = require('underscore'),
   Bot            = require('./lib/bot'),
   TeachCommand   = require('./lib/commands/teach-command'),
   ListCommand    = require('./lib/commands/list-command'),
+  HumCommand     = require('./lib/commands/hum-command'),
   CommandChain   = require('./lib/commands/command-chain'),
   ProviderPool   = require('./lib/providers/provider-pool'),
   flow           = require('./lib/providers/flow-provider');
@@ -21,6 +22,7 @@ var commandChain = new CommandChain();
 commandChain
   .add(new TeachCommand(commandChain, config.botName, providerPool))
   .add(new ListCommand(commandChain, config.botName))
+  .add(new HumCommand(config.botName))
 ;
 
 
