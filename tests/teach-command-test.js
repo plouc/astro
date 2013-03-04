@@ -37,67 +37,64 @@ vows.describe('TeachCommand')
 
 
       'when constructed': {
-        'topic': function(o) {
-          return o.command;
+        'has \'teach\' as name': function (o) {
+          assert.equal(o.command.name, 'teach');
         },
-        'has \'teach\' as name': function (command) {
-          assert.equal(command.name, 'teach');
+        'is native': function (o) {
+          assert.equal(o.command.isNative(), true);
         },
-        'is native': function (command) {
-          assert.equal(command.isNative(), true);
+        'is visible': function (o) {
+          assert.equal(o.command.isVisible(), true);
         },
-        'is visible': function (command) {
-          assert.equal(command.isVisible(), true);
+        'has \'bot\' as author': function (o) {
+          assert.equal(o.command.getAuthor(), 'bot');
         },
-        'has \'bot\' as author': function (command) {
-          assert.equal(command.getAuthor(), 'bot');
-        },
-        'has help defined': function(command) {
+        'has help defined': function(o) {
           var expectHelp = '\tteach help                                                    author: tester-bot\n'
                          + '\t--------------------------------------------------------------------------------\n'
                          + '\tteach a new commands to tester-bot, usage:\n'
                          + '\t> teach <directive> do: <action> [help: <help> tags: <tags>]';
 
-          assert.equal(command.hasHelp(), true);
-          assert.equal(command.help, expectHelp);
-        }
-      },
-
-
-      'when executing \'teach test do: i\'m a test\'': {
-        'topic': function(o) {
-          o.command.exec({
-            'content': 'teach test do: i\'m a test'
-          });
-
-          return o;
+          assert.equal(o.command.hasHelp(), true);
+          assert.equal(o.command.help, expectHelp);
         },
-        'create a new command and add it to the command chain': function(o) {
-          assert.equal(o.commandChain.commands.length, 1);
-
-          var newCommand = o.commandChain.commands[0];
-          assert.equal(newCommand.name, 'test');
-          assert.equal(newCommand.author, 'test nick');
-          assert.equal(newCommand.matcher, '/^test$/');
-        }
-      },
 
 
-      'when executing \'teach testHelp do: testing help help: help for testHelp command\'': {
-        'topic': function(o) {
-          o.command.exec({
-            'content': 'teach testHelp do: testing help help: help for testHelp command'
-          });
+        'when executing \'teach test do: i\'m a test\'': {
+          'topic': function(o) {
+            o.command.exec({
+              'content': 'teach test do: i\'m a test'
+            });
 
-          return o;
-        },
-        'create a new command and add it to the command chain': function(o) {
-          assert.equal(o.commandChain.commands.length, 2);
+            return o;
+          },
+          'create a new command and add it to the command chain': function(o) {
+            assert.equal(o.commandChain.commands.length, 1);
 
-          var newCommand = o.commandChain.commands[0];
-          assert.equal(newCommand.name, 'test');
-          assert.equal(newCommand.author, 'test nick');
-          assert.equal(newCommand.matcher, '/^test$/');
+            var newCommand = o.commandChain.commands[0];
+            assert.equal(newCommand.name, 'test');
+            assert.equal(newCommand.author, 'test nick');
+            assert.equal(newCommand.matcher, '/^test$/');
+          },
+
+
+          'when executing \'teach testHelp do: testing help help: help for testHelp command\'': {
+            'topic': function(o) {
+              o.command.exec({
+                'content': 'teach testHelp do: testing help help: help for testHelp command'
+              });
+
+              return o;
+            },
+            'create a new command and add it to the command chain': function(o) {
+              assert.equal(o.commandChain.commands.length, 3);
+
+              var newCommand = o.commandChain.commands[0];
+              assert.equal(newCommand.name, 'test');
+              assert.equal(newCommand.author, 'test nick');
+              assert.equal(newCommand.matcher, '/^test$/');
+            }
+          }
         }
       }
     }
