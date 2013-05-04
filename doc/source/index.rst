@@ -3,14 +3,57 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to astro's documentation!
-=================================
+#####
+astro
+#####
 
-Contents:
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
+   :numbered:
+   :hidden:
 
+   intro
+   install
+   usage
+
+
+Introduction
+============
+
+.. toctree::
+   :maxdepth: 3
+
+   intro
+
+
+Installation
+============
+
+.. toctree::
+   :maxdepth: 3
+
+   install
+
+
+Usage
+=====
+
+.. toctree::
+   :maxdepth: 3
+
+   usage
+
+
+Credits
+=======
+
+Documentation
+--------------
+
+:Author: Raphaël Benitte
+:Version: |release|
+:Date: |today|
 
 
 Indices and tables
@@ -19,4 +62,3 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
-

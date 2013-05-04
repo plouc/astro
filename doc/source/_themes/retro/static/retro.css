@@ -1,0 +1,393 @@
+@import "normalize.css";
+
+html, body {
+  font-family: "Helvetica Neue", helvetica, arial;
+  font-size: 15px;
+  line-height: 22px;
+  background: #eee8d1;
+  color: #151522;
+  margin: 0;
+  padding: 0;
+}
+a.headerlink {
+  visibility: hidden;
+}
+
+
+/*
+ * Header
+ */
+.header {
+  height: 40px;
+  background: #bfb9a4;
+  padding: 0 2%;
+}
+.header ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.header li {
+  display: block;
+  float: left;
+}
+.header .search {
+  float: right;
+}
+.header a {
+  display: block;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 10px;
+  color: #3e362f;
+}
+.header a.brand {
+  font-weight: 700;
+  font-family: 'Arvo', serif;
+  font-size: 24px;
+  margin-right: 30px;
+  padding: 0;
+}
+.header .search input[type="text"] {
+  box-sizing: border-box;
+  height: 28px;
+  line-height: 28px;
+  border: none;
+  border-radius: 2px;
+  padding: 0 7px;
+  margin-top: 6px;
+}
+
+
+/*
+ * Quick links
+ */
+ul.quick-links {
+  font-size: 11px;
+  font-weight: bold;
+  margin: 0;
+  padding: 0 0 0 2%;
+  list-style: none;
+  height: 30px;
+  line-height: 30px;
+  background: #f6f0d9;
+}
+ul.quick-links strong {
+  font-size: 12px;
+  color: #3e362f;
+}
+ul.quick-links .github-btn {
+  margin-top: 5px;
+}
+ul.quick-links a {
+  color: #635d4c;
+  border-radius: 2px;
+  display: inline-block;
+  height: 20px;
+  line-height: 18px;
+  padding: 0 7px;
+  box-sizing: border-box;
+  border: 1px solid #c6c0aa;
+  background: #ffffff; /* Old browsers */
+  background: -moz-linear-gradient(top, #ffffff 0%, #f6f0d9 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#f6f0d9)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #ffffff 0%,#f6f0d9 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #ffffff 0%,#f6f0d9 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #ffffff 0%,#f6f0d9 100%); /* IE10+ */
+  background: linear-gradient(to bottom, #ffffff 0%,#f6f0d9 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f6f0d9',GradientType=0 ); /* IE6-9 */
+}
+ul.quick-links a:hover {
+  text-decoration: none;
+  background: #fff;
+}
+ul.quick-links li {
+  float: left;
+  margin-right: 7px;
+}
+
+
+/*
+ * Sidebar
+ */
+.sphinxsidebar {
+  position: fixed;
+  top: 70px;
+  left: 2%;
+  width: 18%;
+}
+.sphinxsidebar h3 {
+  margin: 10px 0;
+}
+.sphinxsidebar h3 a {
+  color: #000;
+}
+.sphinxsidebar ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.sphinxsidebar li {
+  margin-bottom: 3px;
+}
+.sphinxsidebar li a,
+.sphinxsidebar .topless a {
+  display: block;
+  background: #bfb9a4;
+  border-radius: 2px;
+  color: #3e362f;
+}
+.sphinxsidebar li a {
+  padding: 5px 10px 5px 5px;
+}
+.sphinxsidebar li a i {
+  font-style: normal;
+  display: inline-block;
+  background: #3e362f;
+  color: #8adc9c;
+  padding: 0 7px;
+  border-radius: 2px;
+  margin-right: 7px;
+  font-size: 11px;
+}
+.sphinxsidebar li ul {
+  margin: 3px 0 0 20px;
+  font-size: 12px;
+}
+.sphinxsidebar li li a {
+  background: #a9a38e;
+}
+.sphinxsidebar li li a i {
+  font-size: 10px;
+}
+.sphinxsidebar a.current {
+  background: #fff;
+}
+.sphinxsidebar h4 {
+  margin: 10px 0 3px 0;
+}
+.sphinxsidebar .topless {
+  margin: 0;
+}
+.sphinxsidebar .topless a {
+  padding: 5px 10px;
+}
+
+
+.container {
+  float: left;
+  width: 76%;
+  margin: 15px 0 15px 22%;
+}
+a {
+  color: #445d64;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+
+/*
+ * Headers
+ */
+h1, h2, h3 {
+  font-weight: 700;
+  font-family: 'Arvo', serif;
+  position: relative;
+}
+h1 {
+  margin: 0;
+  padding: 10px 0;
+}
+h1 span {
+  text-transform: uppercase;
+}
+h1 i,
+h2 i,
+h3 i {
+  font-style: normal;
+  color: #6dba7f;
+}
+h2 {
+  margin: 40px 0 0 0;
+  padding: 2px 0 10px 0;
+  border-bottom: 1px solid #aea892;
+}
+h3 {
+  margin: 25px 0 0 0;
+  padding: 0;
+}
+h2 .index,
+h3 .index {
+  position: relative;
+  display: inline-block;
+  background: #3e362f;
+  color: #8adc9c;
+  border-radius: 2px;
+  padding: 0 9px;
+  margin-right: 7px;
+  font-family: "Helvetica Neue", helvetica, arial;
+  font-weight: 400;
+}
+h2 .index {
+  top: -4px;
+  font-size: 13px;
+}
+h3 .index {
+  top: -1px;
+  font-size: 11px;
+}
+
+
+dl {
+  padding: 10px;
+  background: #f9f3dc;
+}
+dt {
+  padding-bottom: 5px;
+  border-bottom: 1px solid #d4ceb7;
+  margin-bottom: 7px;
+}
+dd {
+  padding-left: 15px;
+  margin: 0 0 10px 0;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+
+
+footer {
+  text-align: left;
+  font-size: 12px;
+  padding: 10px 15px;
+  border-radius: 2px;
+}
+
+.clearfix {
+  overflow: hidden;
+}
+.schema {
+  background: #fff;
+  border-radius: 2px;
+  position: relative;
+}
+.filename {
+  height: 24px;
+  line-height: 24px;
+  padding: 0 10px;
+}
+
+
+/**
+ * Yaml generation schema
+ */
+#yaml-gen-schema {
+  margin-top: 15px;
+  padding: 20px;
+}
+#yaml-gen-schema .nexus {
+  margin: 0 auto;
+  background: #8adc9c;
+  width: 100px;
+  border-radius: 2px;
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+}
+#yaml-gen-schema .yaml-models,
+#yaml-gen-schema .gen-models-cmd,
+#yaml-gen-schema .base-model-code,
+#yaml-gen-schema .yaml-services,
+#yaml-gen-schema .gen-services-cmd,
+#yaml-gen-schema .base-service-code {
+  margin-top: 20px;
+  float: left;
+  width: 48%;
+  border-radius: 2px;
+}
+#yaml-gen-schema .base-model-code,
+#yaml-gen-schema .base-service-code,
+#yaml-gen-schema .yaml-models,
+#yaml-gen-schema .yaml-services {
+  font-size: 11px;
+  line-height: 14px;
+}
+#yaml-gen-schema .yaml-models,
+#yaml-gen-schema .yaml-services {
+  height: 170px;
+}
+#yaml-gen-schema .yaml-models span,
+#yaml-gen-schema .yaml-services span {
+  color: #fff;
+}
+#yaml-gen-schema .yaml-models i,
+#yaml-gen-schema .yaml-services i {
+  font-style: normal;
+  color: #888;
+}
+#yaml-gen-schema .yaml-services,
+#yaml-gen-schema .gen-services-cmd,
+#yaml-gen-schema .base-service-code {
+  margin-left: 4%;
+}
+#yaml-gen-schema .gen-models-cmd strong,
+#yaml-gen-schema .gen-services-cmd strong {
+  color: #fff;
+  font-weight: normal;
+}
+#yaml-gen-schema .base-model-code span,
+#yaml-gen-schema .base-service-code span {
+  color: #fff;
+  font-weight: normal;
+}
+#yaml-gen-schema .yaml-models strong,
+#yaml-gen-schema .yaml-services strong,
+#yaml-gen-schema .base-model-code strong,
+#yaml-gen-schema .base-service-code strong {
+  color: #8adc9c;
+  font-weight: normal;
+}
+
+.console {
+  font-family: "courier new", courier;
+  top: 270px;
+  background: #151522;
+  color: #8adc9c;
+  font-size: 13px;
+  box-sizing: border-box;
+  padding: 10px;
+  border-radius: 2px;
+}
+.console .comment {
+  font-style: italic;
+  color: #7e9181;
+}
+
+.oauth-schema {
+  margin-top: 10px;
+}
+.oauth-request {
+  margin-top: 7px;
+  padding: 7px 10px;
+  color: #3e362f;
+  background: #fff;
+  font-size: 13px;
+  border-radius: 2px;
+  font-family: "courier new", courier;
+}
+.oauth-request strong {
+  color: #445d64;
+  font-weight: bold;
+}
+.oauth-request span {
+  color: #6eb97f;
+  font-weight: bold;
+}
+
+
+.footer {
+  width: 76%;
+  margin: 15px 0 15px 22%;
+}
