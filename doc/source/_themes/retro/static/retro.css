@@ -1,7 +1,7 @@
 @import "normalize.css";
 
 html, body {
-  font-family: "Helvetica Neue", helvetica, arial;
+  font-family: 'Helvetica Neue', helvetica, arial;
   font-size: 15px;
   line-height: 22px;
   background: #eee8d1;
@@ -43,7 +43,7 @@ a.headerlink {
 }
 .header a.brand {
   font-weight: 700;
-  font-family: 'Arvo', serif;
+  font-family: 'Arvo', 'Helvetica Neue', helvetica, arial;
   font-size: 24px;
   margin-right: 30px;
   padding: 0;
@@ -193,7 +193,7 @@ a:hover {
  */
 h1, h2, h3 {
   font-weight: 700;
-  font-family: 'Arvo', serif;
+  font-family: 'Arvo', 'Helvetica Neue', helvetica, arial;
   position: relative;
 }
 h1 {
