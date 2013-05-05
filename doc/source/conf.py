@@ -97,12 +97,17 @@ pygments_style = 'sphinx'
 # -- Options for HTML output ----------------------------------------------
 
 html_theme = 'retro'
+html_theme_path = ['_themes']
+html_static_path = ['_static']
 html_theme_options = {
     'github_user': 'plouc',
     'github_repo': 'astro',
-    'twitter_username': 'benitteraphael'
+    'twitter_username': 'benitteraphael',
+    'no_quick_links': False
 }
-html_theme_path = ['_themes']
+html_show_sourcelink = False
+html_show_copyright = True
+html_show_sphinx = True
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
@@ -119,11 +124,6 @@ html_theme_path = ['_themes']
 # docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
 # pixels large.
 #html_favicon = None
-
-# Add any paths that contain custom static files (such as style sheets) here,
-# relative to this directory. They are copied after the builtin static files,
-# so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_static']
 
 # If not '', a 'Last updated on:' timestamp is inserted at every page bottom,
 # using the given strftime format.
@@ -148,15 +148,6 @@ html_static_path = ['_static']
 
 # If true, the index is split into individual pages for each letter.
 #html_split_index = False
-
-# If true, links to the reST sources are added to the pages.
-html_show_sourcelink = False
-
-# If true, "Created using Sphinx" is shown in the HTML footer. Default is True.
-#html_show_sphinx = True
-
-# If true, "(C) Copyright ..." is shown in the HTML footer. Default is True.
-#html_show_copyright = True
 
 # If true, an OpenSearch description file will be output, and all pages will
 # contain a <link> tag referring to it.  The value of this option must be the

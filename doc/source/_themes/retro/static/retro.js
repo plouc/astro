@@ -1,5 +1,15 @@
 $(document).ready(function() {
 
+  // wrap section numbering with an 'i' tag
+  $('.sphinxsidebar').find('a')
+    .add('.toctree-wrapper a')
+    .add('h1, h2, h3, h4, h5, h6')
+  .each(function() {
+    var $this = $(this),
+      content = $this.html();
+    $this.html(content.replace(/^([0-9.]+)\. (.*)$/, '<i>$1</i>$2'));
+  });
+
   var $navigation = $('.sphinxsidebar');
   function setCurrentNavItem(hash) {
     var $current = $('a[href$="' + hash + '"]');
@@ -9,19 +19,26 @@ $(document).ready(function() {
     }
   }
 
+  // animate scroll for anchors
   var animatingSections = false;
   $('a[href*="#"]').on('click',function (e) {
-    e.preventDefault();
+    // try to find the target element with link hash
     var target = this.hash,
-      $target = $(target);
-    setCurrentNavItem(target);
-    animatingSections = true;
-    $('html, body').stop().animate({
-        'scrollTop': $target.offset().top
-    }, 400, 'swing', function () {
-      window.location.hash = target;
-      animatingSections = false;
-    });
+      $target  = $(target);
+
+    // if $target is an existing element on current page,
+    // scroll to this element
+    if ($target.length >= 1) {
+      e.preventDefault();
+      setCurrentNavItem(target);
+      animatingSections = true;
+      $('html, body').stop().animate({
+          'scrollTop': $target.offset().top
+      }, 400, 'swing', function () {
+        window.location.hash = target;
+        animatingSections = false;
+      });
+    }
   });
 
   var sectionSelectors = [];

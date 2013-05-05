@@ -5,7 +5,8 @@
 {%- if url_root == '#' %}{% set url_root = '' %}{% endif %}
 
 {%- macro relbar(bottom=False) %}
-    <div class="related{% if bottom %} related-bottom{% endif %}">
+<div class="related{% if bottom %} related-bottom{% endif %}"
+     xmlns="http://www.w3.org/1999/html">
         <ul class="nav">
             {%- block rootrellink %}
                 <li><a class="brand" href="{{ pathto(master_doc) }}">{{ project|e }}</a></li>
@@ -56,8 +57,7 @@
 
 {%- macro seachbox() %}
     {%- if pagename != "search" %}
-        <form class="navbar-search" action="{{ pathto('search') }}"
-              method="get">
+        <form class="navbar-search" action="{{ pathto('search') }}" method="get">
             <input type="text" name="q" placeholder="search"/>
             <input type="hidden" name="check_keywords" value="yes"/>
             <input type="hidden" name="area" value="default"/>
@@ -111,6 +111,7 @@
     </header>
 {% endblock %}
 
+{%- if not theme_no_quick_links|tobool %}
 <ul class="quick-links">
     <li><strong>Quick links</strong></li>
     <li class="follow-btn">
@@ -144,6 +145,7 @@
                 width="94px" height="20px"></iframe>
     </li>
 </ul>
+{%- endif %}
 
 {%- block content %}
     {%- block sidebar1 %} {# possible location for sidebar #} {% endblock %}
@@ -189,18 +191,15 @@
     </div>
 {%- endblock %}
 
+    <script src="{{ pathto('_static/jquery-1.9.1.min.js', 1) }}"></script>
+    <script src="{{ pathto('_static/retro.js', 1) }}"></script>
 {% if theme_disqus_shortname %}
-    <!-- disqus -->
     <script type="text/javascript">
         var disqus_title = '{{ title|striptags|e }}{{ titlesuffix }}';
         var disqus_identifier ='code' + '.' + "{{ theme_disqus_shortname }}" + window.location.pathname.replace('/', '.');
     </script>
-
     <script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-        var disqus_shortname = "{{ theme_disqus_shortname }}"; // required: replace example with your forum shortname
-
-        /* * * DON'T EDIT BELOW THIS LINE * * */
+        var disqus_shortname = "{{ theme_disqus_shortname }}";
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
             dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
