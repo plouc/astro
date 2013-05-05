@@ -1,10 +1,16 @@
 astro
 =====
 
+[@documentation]: https://astro.readthedocs.org/ "astro Documentation"
+
 astro is a nodejs bot for flowdock.
 Its particularity is its ability to learn new commands.
 
 [![Build Status](https://travis-ci.org/plouc/astro.png?branch=master)](https://travis-ci.org/plouc/astro)
+
+## Documentation
+
+Complete documentation is available on [Read the Docs][@documentation].
 
 ## Installation
 
