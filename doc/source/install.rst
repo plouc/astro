@@ -35,12 +35,12 @@ reside under the 'default' key, it allow you to define multiple configs.
 
     var config = {
       'default': {
-        'botName':        'astro', // the name of your bot
-        'org':            'ORGANIZATION_NAME',
-        'flow':           'FLOW_NAME',
-        'userToken':      'YOUR_FLOW_USER_TOKEN',
-        'apiToken':       'YOUR_FLOW_API_TOKEN',
-        'welcomeMessage': 'Hi, I\'m astro' // message to display on bot connection
+        'botName':        'astro',                // name of your bot
+        'org':            'ORGANIZATION_NAME',    // flowdock organization name
+        'flow':           'FLOW_NAME',            // flowdock flow name
+        'userToken':      'YOUR_FLOW_USER_TOKEN', // flowdock personal API token
+        'apiToken':       'YOUR_FLOW_API_TOKEN',  // flowdock flow API token
+        'welcomeMessage': 'Hi, I\'m astro'        // message to display on bot connection
       }
     };
 

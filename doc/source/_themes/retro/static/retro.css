@@ -36,26 +36,34 @@ a.headerlink {
 }
 .header a {
   display: block;
-  height: 40px;
-  line-height: 40px;
+  height: 26px;
+  line-height: 26px;
   padding: 0 10px;
   color: #3e362f;
+  border-radius: 2px;
+  background: #efe9d2;
+  font-size: 13px;
+  margin-top: 7px;
+  margin-right: 3px;
 }
 .header a.brand {
   font-weight: 400;
   font-family: 'Arvo', 'Helvetica Neue', helvetica, arial;
   font-size: 21px;
-  margin-right: 30px;
   padding: 0;
   background: #3e362f;
   color: #8adc9c;
   height: 32px;
   line-height: 32px;
-  border-radius: 2px;
   margin-top: 4px;
+  margin-right: 30px;
   padding: 0 10px;
   box-shadow: 0 1px 1px #000 inset;
   text-shadow: 0 1px 1px #000;
+}
+.header a.brand:hover {
+  text-decoration: none;
+  color: #9ef0b0;
 }
 .header .search input[type="text"] {
   box-sizing: border-box;
@@ -125,6 +133,9 @@ ul.quick-links li {
   left: 2%;
   width: 18%;
 }
+.no-quick-links .sphinxsidebar {
+  top: 40px;
+}
 .sphinxsidebar h3 {
   margin: 10px 0;
 }
@@ -146,17 +157,17 @@ ul.quick-links li {
   font-size: 11px;
 }
 .sphinxsidebar li ul {
-  margin: 3px 0 0 10px;
+  margin: 3px 0 0 0;
   font-size: 12px;
-}
-.sphinxsidebar li li a {
-  background: #a9a38e;
 }
 .sphinxsidebar li li a i {
   font-size: 10px;
 }
-.sphinxsidebar a.current {
-  background: #fff;
+.sphinxsidebar a.current,
+.sphinxsidebar a.current:hover {
+  background: #f2ecd6;
+  color: #2b231d;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
 }
 .sphinxsidebar h4 {
   margin: 10px 0 3px 0;
@@ -179,18 +190,20 @@ ul.quick-links li {
   font-size: 13px;
   padding: 5px 10px 5px 5px;
 }
-.sphinxsidebar li a:hover,
-.sphinxsidebar .topless a:hover,
-.toctree-wrapper a:hover {
-  background: #e6e0cb;
-  box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
-  text-decoration: none;
-}
 .toctree-wrapper .toctree-l1 > a,
 .sphinxsidebar > ul > li > a {
   font-weight: bold;
   background: #bfb9a4;
   font-size: 15px;
+}
+.sphinxsidebar li a:hover,
+.sphinxsidebar .topless a:hover,
+.sphinxsidebar > ul > li > a:hover,
+.toctree-wrapper a:hover,
+.toctree-wrapper .toctree-l1 > a:hover {
+  background: #e6e0cb;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+  text-decoration: none;
 }
 
 

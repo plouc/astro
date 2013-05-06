@@ -89,7 +89,7 @@
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 </head>
-<body>
+<body class="{%- if theme_no_quick_links|tobool %}no-quick-links{%- else %}has-quick-links{%- endif %}">
 {%- block header %}
     <header class="header">
         {%- block headerlogo %}
