@@ -83,7 +83,6 @@ vows.describe('ListCommand')
           },
           'does not add this command to the list': function(listCommand) {
             var out = listCommand.exec({'content': 'list-cmd'});
-            console.log(out.message);
             var expectList = '\ttester-bot available commands\n'
                            + '\t————————————————————————————————————————————————————————————————————————————————\n'
                            + '\t• test1 .................................................................... bot';
