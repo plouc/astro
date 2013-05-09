@@ -11,6 +11,7 @@
     "request": "*",
     "underscore": "*",
     "underscore.string": "*",
+    "q": "*",
     "vows": "*"
   },
   "devDependencies": {

@@ -1,8 +1,8 @@
-var vows       = require('vows'),
-  Command      = require('../lib/commands/command'),
-  CommandChain = require('../lib/commands/command-chain'),
-  ListCommand  = require('../lib/commands/list-command'),
-  assert       = require('assert');
+var vows            = require('vows'),
+  Command           = require('../lib/commands/command'),
+  CommandCollection = require('../lib/commands/command-collection'),
+  ListCommand       = require('../lib/commands/list-command'),
+  assert            = require('assert');
 
 vows.describe('ListCommand')
   .addBatch({
@@ -10,7 +10,7 @@ vows.describe('ListCommand')
 
     'A ListCommand': {
       'topic': function() {
-        return new ListCommand(new CommandChain(), 'tester-bot');
+        return new ListCommand(new CommandCollection(), 'tester-bot');
       },
 
 
@@ -24,8 +24,8 @@ vows.describe('ListCommand')
         'is visible': function (listCommand) {
           assert.equal(listCommand.isVisible(), true);
         },
-        'has \'bot\' as author': function (listCommand) {
-          assert.equal(listCommand.getAuthor(), 'bot');
+        'has \'tester-bot\' as author': function (listCommand) {
+          assert.equal(listCommand.getAuthor(), 'tester-bot');
         },
         'has help defined': function(listCommand) {
           var expectHelp = '\tlist help                                                     author: tester-bot\n'
@@ -64,8 +64,8 @@ vows.describe('ListCommand')
           'display this command in the list': function(listCommand) {
             var out = listCommand.exec({'content': 'list-cmd'});
             var expectList = '\ttester-bot available commands\n'
-                           + '\t————————————————————————————————————————————————————————————————————————————————\n'
-                           + '\t• test1................................................................... (bot)';
+            	             + '\t————————————————————————————————————————————————————————————————————————————————\n'
+            	             + '\t• test1 .................................................................... bot';
 
             assert.equal(out.message, expectList);
           }
@@ -83,9 +83,10 @@ vows.describe('ListCommand')
           },
           'does not add this command to the list': function(listCommand) {
             var out = listCommand.exec({'content': 'list-cmd'});
+            console.log(out.message);
             var expectList = '\ttester-bot available commands\n'
                            + '\t————————————————————————————————————————————————————————————————————————————————\n'
-                           + '\t• test1................................................................... (bot)';
+                           + '\t• test1 .................................................................... bot';
 
             assert.equal(out.message, expectList);
           }

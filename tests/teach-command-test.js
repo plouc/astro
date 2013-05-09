@@ -1,8 +1,8 @@
-var vows       = require('vows'),
-  assert       = require('assert'),
-  ProviderPool = require('../lib/providers/provider-pool'),
-  CommandChain = require('../lib/commands/command-chain'),
-  TeachCommand = require('../lib/commands/teach-command');
+var vows             = require('vows'),
+  assert             = require('assert'),
+  ProviderCollection = require('../lib/providers/provider-collection'),
+  CommandCollection  = require('../lib/commands/command-collection'),
+  TeachCommand       = require('../lib/commands/teach-command');
 
 var FlowProviderMock = function() {
   this.name = 'flow';
@@ -23,15 +23,15 @@ vows.describe('TeachCommand')
 
     'A TeachCommand': {
       'topic': function() {
-        var commandChain = new CommandChain(),
+        var commands     = new CommandCollection(),
             flowProvider = new FlowProviderMock(),
-            providerPool = new ProviderPool();
+            providers    = new ProviderCollection();
 
-        providerPool.add(flowProvider);
+        providers.add(flowProvider);
 
         return {
-          'commandChain': commandChain,
-          'command':      new TeachCommand(commandChain, 'tester-bot', providerPool)
+          'commands': commands,
+          'command':  new TeachCommand(commands, 'tester-bot', providers)
         };
       },
 
@@ -47,12 +47,12 @@ vows.describe('TeachCommand')
           assert.equal(o.command.isVisible(), true);
         },
         'has \'bot\' as author': function (o) {
-          assert.equal(o.command.getAuthor(), 'bot');
+          assert.equal(o.command.getAuthor(), 'tester-bot');
         },
         'has help defined': function(o) {
           var expectHelp = '\tteach help                                                    author: tester-bot\n'
                          + '\t————————————————————————————————————————————————————————————————————————————————\n'
-                         + '\tteach a new commands to tester-bot, usage:\n'
+                         + '\tteach a new command to tester-bot, usage:\n'
                          + '\t➜ teach <directive> do: <action> [help: <help> tags: <tags>]';
 
           assert.equal(o.command.hasHelp(), true);
@@ -69,9 +69,10 @@ vows.describe('TeachCommand')
             return o;
           },
           'create a new command and add it to the command chain': function(o) {
-            assert.equal(o.commandChain.commands.length, 1);
+            assert.equal(o.commands.items.length, 1);
+            assert.deepEqual(Object.keys(o.commands.namedItems), ['test']);
 
-            var newCommand = o.commandChain.commands[0];
+            var newCommand = o.commands.items[0];
             assert.equal(newCommand.name, 'test');
             assert.equal(newCommand.author, 'test nick');
             assert.equal(newCommand.matcher, '/^test$/');
@@ -87,9 +88,10 @@ vows.describe('TeachCommand')
               return o;
             },
             'create a new command and add it to the command chain': function(o) {
-              assert.equal(o.commandChain.commands.length, 3);
+              assert.equal(o.commands.items.length, 3);
+              assert.deepEqual(Object.keys(o.commands.namedItems), ['test', 'testHelp-help', 'testHelp']);
 
-              var newCommand = o.commandChain.commands[0];
+              var newCommand = o.commands.items[0];
               assert.equal(newCommand.name, 'test');
               assert.equal(newCommand.author, 'test nick');
               assert.equal(newCommand.matcher, '/^test$/');

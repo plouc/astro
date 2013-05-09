@@ -1,8 +1,12 @@
 var vows       = require('vows'),
-  Command      = require('../lib/commands/command'),
-  CommandChain = require('../lib/commands/command-chain'),
   PointCommand = require('../lib/commands/point-command'),
   assert       = require('assert');
+
+var ProviderCollection = function() {};
+ProviderCollection.prototype.get = function() {
+  return {};
+};
+
 
 vows.describe('PointCommand')
   .addBatch({
@@ -10,7 +14,7 @@ vows.describe('PointCommand')
 
     'A PointCommand': {
       'topic': function() {
-        return new PointCommand();
+        return new PointCommand('tester-bot', new ProviderCollection());
       },
 
 
@@ -24,15 +28,17 @@ vows.describe('PointCommand')
         'is visible': function (pointCommand) {
           assert.equal(pointCommand.isVisible(), true);
         },
-        'has \'bot\' as author': function (pointCommand) {
-          assert.equal(pointCommand.getAuthor(), 'bot');
+        'has \'tester-bot\' as author': function (pointCommand) {
+          assert.equal(pointCommand.getAuthor(), 'tester-bot');
         },
         'has help defined': function(pointCommand) {
           assert.equal(pointCommand.hasHelp(), true);
           assert.equal(pointCommand.help,
-                       '\t give a type point to the given user\n'
-                     + '\t usage:\n'
-                     + '\t > pt humor john');
+                       '\tpt help                                                       author: tester-bot\n'
+                     + '\t————————————————————————————————————————————————————————————————————————————————\n'
+                     + '\tgive a type point to the given user\n'
+                     + '\tusage:\n'
+                     + '\t➜ pt humor john');
         }
       }
     }
