@@ -19,7 +19,7 @@ vows.describe('PointCommand')
 
 
       'when constructed': {
-        'has \'list-cmd\' as name': function (pointCommand) {
+        'has \'pt\' as name': function (pointCommand) {
           assert.equal(pointCommand.name, 'pt');
         },
         'is native': function (pointCommand) {

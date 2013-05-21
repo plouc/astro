@@ -8,6 +8,7 @@ var _                = require('underscore'),
   PointCommand       = require('./lib/commands/point-command'),
   NewRelicCommand    = require('./lib/commands/new-relic-command'),
   TravisCommand      = require('./lib/commands/travis-command'),
+  ReminderCommand    = require('./lib/commands/reminder-command'),
   CommandCollection  = require('./lib/commands/command-collection'),
   ProviderCollection = require('./lib/providers/provider-collection'),
   flow               = require('./lib/providers/flow-provider'),
@@ -38,6 +39,7 @@ commandCollection
   .add(new ListCommand(commandCollection, config.botName))
   .add(new SoCommand(config.botName))
   .add(new PointCommand(config.botName, providerCollection))
+  .add(new ReminderCommand(config.botName, providerCollection))
 ;
 
 
